@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c028wgp7bpkkc"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_rs663"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_rs663")
+
+[node name="timerStuff" type="Node" parent="."]
+
+[node name="clock2" type="Label" parent="timerStuff"]
+visible = false
+offset_left = 516.0
+offset_right = 624.0
+offset_bottom = 23.0
+text = "Time left in line: 0:00"
+
+[node name="timeLeft2" type="Timer" parent="timerStuff"]
+one_shot = true
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="timeout" from="timerStuff/timeLeft2" to="." method="_on_time_left_2_timeout"]

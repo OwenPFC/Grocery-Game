@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://cuawtssurttd7"]
+
+[ext_resource type="Script" path="res://level_top.gd" id="1_y60g4"]
+[ext_resource type="PackedScene" uid="uid://bvsytg3v0k18n" path="res://grocery_guy_top.tscn" id="2_p7j8t"]
+[ext_resource type="PackedScene" uid="uid://btd3h4h74qagf" path="res://quest_man_1.tscn" id="3_3smg3"]
+[ext_resource type="PackedScene" uid="uid://c15vsnrihfwu2" path="res://deli_guy.tscn" id="4_hjvpt"]
+[ext_resource type="PackedScene" uid="uid://b6nup3e8atn7r" path="res://deli_scene.tscn" id="4_qr5h0"]
+[ext_resource type="Texture2D" uid="uid://wyevc3nwrkvm" path="res://00ff00.webp" id="5_apq30"]
+[ext_resource type="PackedScene" uid="uid://bjq3nwa7md0h6" path="res://deli_line.tscn" id="6_duov5"]
+[ext_resource type="PackedScene" uid="uid://b1xuyrgyw8tpb" path="res://freezers.tscn" id="7_sbljj"]
+[ext_resource type="PackedScene" uid="uid://dsqwafsomxhp6" path="res://free_samples.tscn" id="8_mi7ko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur1ve"]
+size = Vector2(26, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27de1"]
+size = Vector2(27.5, 309)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2drc2"]
+size = Vector2(91, 80.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0on3u"]
+size = Vector2(71, 84)
+
+[node name="levelTop" type="Node2D"]
+script = ExtResource("1_y60g4")
+
+[node name="wall1" type="StaticBody2D" parent="."]
+position = Vector2(248, 311)
+
+[node name="Sprite2D" type="Sprite2D" parent="wall1"]
+position = Vector2(-0.999999, -52.75)
+scale = Vector2(0.015, 0.15575)
+texture = ExtResource("5_apq30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall1"]
+position = Vector2(-1, -53)
+shape = SubResource("RectangleShape2D_ur1ve")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+position = Vector2(392, 214)
+
+[node name="Sprite2D" type="Sprite2D" parent="wall2"]
+position = Vector2(-3.99997, 48)
+scale = Vector2(0.015, 0.15575)
+texture = ExtResource("5_apq30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+position = Vector2(-3.74992, 48.5)
+shape = SubResource("RectangleShape2D_27de1")
+
+[node name="bottom1" type="Area2D" parent="."]
+
+[node name="bottom1Area" type="CollisionShape2D" parent="bottom1"]
+position = Vector2(316.5, 337)
+shape = SubResource("RectangleShape2D_2drc2")
+
+[node name="top1" type="Area2D" parent="."]
+position = Vector2(62, 24)
+
+[node name="top1Area" type="CollisionShape2D" parent="top1"]
+position = Vector2(252.5, 212)
+shape = SubResource("RectangleShape2D_0on3u")
+
+[node name="deli_guy" parent="." instance=ExtResource("4_hjvpt")]
+position = Vector2(811, 128)
+
+[node name="deli_scene" parent="." instance=ExtResource("4_qr5h0")]
+position = Vector2(101, 101)
+
+[node name="deli_line" parent="." instance=ExtResource("6_duov5")]
+position = Vector2(74, 55)
+
+[node name="freezers" parent="." instance=ExtResource("7_sbljj")]
+position = Vector2(-134, -28)
+
+[node name="free_samples" parent="." instance=ExtResource("8_mi7ko")]
+position = Vector2(115, 421)
+
+[node name="ggTop" parent="." instance=ExtResource("2_p7j8t")]
+position = Vector2(172, 594)
+
+[node name="QuestMan1" parent="." instance=ExtResource("3_3smg3")]
+position = Vector2(437, 140)
+
+[connection signal="body_entered" from="bottom1" to="." method="_on_bottom_1_body_entered"]
+[connection signal="body_entered" from="top1" to="." method="_on_top_1_body_entered"]
+[connection signal="indicatorVisible" from="deli_scene" to="deli_line" method="_on_deli_scene_indicator_visible"]
+[connection signal="moveGGALittle" from="deli_scene" to="ggTop" method="_on_deli_scene_move_gga_little"]
+[connection signal="pauseGGTop" from="deli_scene" to="ggTop" method="_on_deli_scene_pause_gg_top"]
+[connection signal="deliLineIndicators" from="deli_line" to="deli_scene" method="_on_deli_line_deli_line_indicators"]
+[connection signal="changeToBlue" from="freezers" to="ggTop" method="_on_freezers_change_to_blue"]
+[connection signal="pauseGGTop" from="freezers" to="ggTop" method="_on_freezers_pause_gg_top"]
+[connection signal="pauseGGTop" from="QuestMan1" to="ggTop" method="_on_quest_man_1_pause_gg_top"]

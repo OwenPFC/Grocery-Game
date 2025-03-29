@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqwafsomxhp6"]
+
+[ext_resource type="Texture2D" uid="uid://lte7h1h6gwi1" path="res://Free Samples/table with guy chair transp.png" id="1_csxfd"]
+
+[node name="free_samples" type="Node2D"]
+
+[node name="free_sample_guy" type="Sprite2D" parent="."]
+position = Vector2(4, 1)
+scale = Vector2(0.748418, 0.770747)
+texture = ExtResource("1_csxfd")

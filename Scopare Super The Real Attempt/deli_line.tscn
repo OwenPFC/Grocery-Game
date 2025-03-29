@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjq3nwa7md0h6"]
+
+[ext_resource type="Script" path="res://deli_line.gd" id="1_3otrn"]
+[ext_resource type="Texture2D" uid="uid://ch8foh6wf4e0e" path="res://ggTopAbsolutelyReal.png" id="2_kxwla"]
+[ext_resource type="Texture2D" uid="uid://x5kr1sl7tsfu" path="res://indicator.png" id="3_5gq54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihehl"]
+size = Vector2(62, 174)
+
+[node name="deli_line" type="Node2D"]
+script = ExtResource("1_3otrn")
+
+[node name="npc1" type="StaticBody2D" parent="."]
+position = Vector2(746, 305)
+
+[node name="npc1ActionArea" type="Area2D" parent="npc1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc1/npc1ActionArea"]
+polygon = PackedVector2Array(-41, 107, -24, 110, -7, 122, 14, 125, 29, 115, 52, 111, 57, 102, 36, -75, -19, -75, -34, -73, -44, 87, -53, 89, -38, -84, 8, -82, 45, -79, 66, 97, 59, 120, 34, 128, -38, 118, -56, 101)
+
+[node name="sprite" type="Sprite2D" parent="npc1"]
+position = Vector2(-119, 78)
+texture = ExtResource("2_kxwla")
+
+[node name="indicator" type="Sprite2D" parent="npc1"]
+visible = false
+position = Vector2(5, 136)
+scale = Vector2(0.136364, 0.136986)
+texture = ExtResource("3_5gq54")
+
+[node name="hitbox" type="CollisionShape2D" parent="npc1"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_ihehl")
+
+[node name="npc2" type="StaticBody2D" parent="."]
+position = Vector2(753, 521)
+
+[node name="npc2ActionArea" type="Area2D" parent="npc2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc2/npc2ActionArea"]
+polygon = PackedVector2Array(-41, 107, -24, 110, -7, 122, 14, 125, 29, 115, 52, 111, 57, 102, 36, -75, -19, -75, -34, -73, -44, 87, -53, 89, -38, -84, 8, -82, 45, -79, 66, 97, 59, 120, 34, 128, -38, 118, -56, 101)
+
+[node name="sprite" type="Sprite2D" parent="npc2"]
+position = Vector2(-119, 78)
+texture = ExtResource("2_kxwla")
+
+[node name="indicator" type="Sprite2D" parent="npc2"]
+visible = false
+position = Vector2(5, 136)
+scale = Vector2(0.136364, 0.136986)
+texture = ExtResource("3_5gq54")
+
+[node name="hitbox" type="CollisionShape2D" parent="npc2"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_ihehl")
+
+[node name="npc3" type="StaticBody2D" parent="."]
+position = Vector2(759, 740)
+
+[node name="npc3ActionArea" type="Area2D" parent="npc3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc3/npc3ActionArea"]
+polygon = PackedVector2Array(-41, 107, -24, 110, -7, 122, 14, 125, 29, 115, 52, 111, 57, 102, 36, -75, -19, -75, -34, -73, -44, 87, -53, 89, -38, -84, 8, -82, 45, -79, 66, 97, 59, 120, 34, 128, -38, 118, -56, 101)
+
+[node name="sprite" type="Sprite2D" parent="npc3"]
+position = Vector2(-119, 78)
+texture = ExtResource("2_kxwla")
+
+[node name="indicator" type="Sprite2D" parent="npc3"]
+visible = false
+
+[node name="hitbox" type="CollisionShape2D" parent="npc3"]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_ihehl")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="npc1/npc1ActionArea" to="." method="_on_npc_1_action_area_body_entered"]
+[connection signal="body_exited" from="npc1/npc1ActionArea" to="." method="_on_npc_1_action_area_body_exited"]
+[connection signal="body_entered" from="npc2/npc2ActionArea" to="." method="_on_npc_2_action_area_body_entered"]
+[connection signal="body_exited" from="npc2/npc2ActionArea" to="." method="_on_npc_2_action_area_body_exited"]
+[connection signal="body_entered" from="npc3/npc3ActionArea" to="." method="_on_npc_3_action_area_body_entered"]
+[connection signal="body_exited" from="npc3/npc3ActionArea" to="." method="_on_npc_3_action_area_body_exited"]

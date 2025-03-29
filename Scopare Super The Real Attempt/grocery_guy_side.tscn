@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bejas3astk43g"]
+
+[ext_resource type="Texture2D" uid="uid://3fufuxhmh5qg" path="res://ggs.png" id="1_lfvqq"]
+[ext_resource type="Script" path="res://grocery_guy_side.gd" id="1_qxwsg"]
+[ext_resource type="Texture2D" uid="uid://dbpqctfuueccj" path="res://Grocery Guy Variants/ggs1Blue.png" id="2_2kk3y"]
+[ext_resource type="Texture2D" uid="uid://cjbwpgfg0v17t" path="res://Grocery Guy Variants/ggs2Blue.png" id="3_2smdy"]
+[ext_resource type="Texture2D" uid="uid://c3fc3p7hi7etp" path="res://ggsidewalkrealforreal.png" id="3_am8q3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyi1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2kk3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2smdy")
+}],
+"loop": true,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lfvqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_am8q3")
+}],
+"loop": true,
+"name": &"ggSide",
+"speed": 5.0
+}]
+
+[node name="grocery guy side" type="CharacterBody2D"]
+script = ExtResource("1_qxwsg")
+
+[node name="GgsAnimated" type="AnimatedSprite2D" parent="."]
+position = Vector2(615, 260)
+sprite_frames = SubResource("SpriteFrames_dyi1y")
+animation = &"ggSide"
+
+[node name="hitBoxLeft" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(544, 175, 539, 304, 585, 305, 588, 183)
+
+[node name="hitBoxRight" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(641, 178, 643, 297, 689, 302, 682, 184)

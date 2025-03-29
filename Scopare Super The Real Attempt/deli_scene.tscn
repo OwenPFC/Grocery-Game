@@ -1,0 +1,217 @@
+[gd_scene load_steps=23 format=3 uid="uid://b6nup3e8atn7r"]
+
+[ext_resource type="Script" path="res://deli_scene.gd" id="1_s30hg"]
+[ext_resource type="Texture2D" uid="uid://bwamgx6rbp10w" path="res://Deli/meatman sprite.png" id="2_c1j4h"]
+[ext_resource type="Texture2D" uid="uid://x5kr1sl7tsfu" path="res://indicator.png" id="3_cwjam"]
+[ext_resource type="Texture2D" uid="uid://wqcp2nnqhl2u" path="res://Deli/attendant/attendant 1.png" id="4_452x7"]
+[ext_resource type="Texture2D" uid="uid://dvcfuabux48sm" path="res://Deli/attendant/crawl/1.png" id="4_ai61j"]
+[ext_resource type="Texture2D" uid="uid://bon0m1pfpmldh" path="res://Deli/attendant/crawl/2.png" id="5_kv4jn"]
+[ext_resource type="Texture2D" uid="uid://xsisbi7g5b0e" path="res://Deli/attendant/attendant 4.png" id="5_utoua"]
+[ext_resource type="Texture2D" uid="uid://c02a22mm0cbyb" path="res://Deli/transition/1.png" id="6_h60jb"]
+[ext_resource type="Texture2D" uid="uid://df8xuquww4okk" path="res://Deli/temp/something1TRANS.png" id="6_yejkf"]
+[ext_resource type="Texture2D" uid="uid://d08pox6db2piu" path="res://Deli/temp/something2.png" id="7_dm4kf"]
+[ext_resource type="Texture2D" uid="uid://0udxb366mte1" path="res://Deli/transition/2.png" id="7_nxhbu"]
+[ext_resource type="Texture2D" uid="uid://b8ca1joi87urn" path="res://Deli/transition/3.png" id="8_5qa1n"]
+[ext_resource type="Texture2D" uid="uid://trs7hildl46y" path="res://Deli/attendant/attendant standing.png" id="8_bjscd"]
+[ext_resource type="Texture2D" uid="uid://dc6beq3vhjj55" path="res://Deli/temp/something3TRANS.png" id="8_is2mm"]
+[ext_resource type="Texture2D" uid="uid://c2s4y2q2mk247" path="res://Deli/temp/something4TRANS.png" id="9_5mf10"]
+[ext_resource type="Texture2D" uid="uid://57nj540kmx5j" path="res://Deli/transition/4.png" id="9_ngdud"]
+[ext_resource type="Texture2D" uid="uid://1ppmvm7ia47i" path="res://Deli/temp/something5TRANS.png" id="10_sxnma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg44"]
+size = Vector2(55, 155)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rs6ay"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ai61j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kv4jn")
+}],
+"loop": true,
+"name": &"crawl",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"lay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_452x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_utoua")
+}],
+"loop": true,
+"name": &"pant",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bjscd")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tin5f"]
+size = Vector2(28.3335, 94)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_um36f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_h60jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nxhbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5qa1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ngdud")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yejkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dm4kf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yejkf")
+}, {
+"duration": 0.8,
+"texture": ExtResource("7_dm4kf")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_yejkf")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_is2mm")
+}, {
+"duration": 0.8,
+"texture": ExtResource("9_5mf10")
+}, {
+"duration": 0.8,
+"texture": ExtResource("10_sxnma")
+}],
+"loop": true,
+"name": &"pull",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mhay"]
+size = Vector2(78, 157)
+
+[node name="deli_scene" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_s30hg")
+
+[node name="meatManBody" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(737, 102)
+
+[node name="meatMan" type="Area2D" parent="meatManBody"]
+monitoring = false
+
+[node name="meatSprite" type="Sprite2D" parent="meatManBody/meatMan"]
+position = Vector2(64, 2.99999)
+scale = Vector2(0.443341, 0.437801)
+texture = ExtResource("2_c1j4h")
+
+[node name="indicatorM" type="Sprite2D" parent="meatManBody/meatMan"]
+visible = false
+position = Vector2(-2, -58)
+scale = Vector2(0.107656, 0.109589)
+texture = ExtResource("3_cwjam")
+
+[node name="meatArea" type="CollisionPolygon2D" parent="meatManBody/meatMan"]
+position = Vector2(-4, -46)
+polygon = PackedVector2Array(-28, 2, -26, 109, 33, 107, 32, -51, -26, -51, -27, -6, -29, -6, -29, -53, 36, -52, 34, 47, 34, 113, -27, 112, -30, 35, -31, 3)
+
+[node name="meatHitBox" type="CollisionShape2D" parent="meatManBody"]
+position = Vector2(-1.5, -17.5)
+shape = SubResource("RectangleShape2D_cqg44")
+disabled = true
+
+[node name="attendantBody" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(667, 106)
+scale = Vector2(1.2, 1.2)
+
+[node name="actionAreaAttendant" type="Area2D" parent="attendantBody"]
+monitoring = false
+
+[node name="indicatorA" type="Sprite2D" parent="attendantBody/actionAreaAttendant"]
+visible = false
+position = Vector2(8, -54)
+scale = Vector2(0.117225, 0.10274)
+texture = ExtResource("3_cwjam")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="attendantBody/actionAreaAttendant"]
+position = Vector2(-481, -238)
+scale = Vector2(1, 1.06845)
+polygon = PackedVector2Array(461, 218, 464, 215, 465, 175, 513, 173, 513, 273, 464, 273, 462, 220, 461, 222, 460, 271, 460, 275, 516, 275, 514, 180, 515, 171, 462, 170)
+
+[node name="attendant sprites" type="AnimatedSprite2D" parent="attendantBody/actionAreaAttendant"]
+position = Vector2(7.00002, 0.999992)
+scale = Vector2(0.23897, 0.414065)
+sprite_frames = SubResource("SpriteFrames_rs6ay")
+animation = &"stand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attendantBody"]
+position = Vector2(7.50012, 0)
+shape = SubResource("RectangleShape2D_tin5f")
+
+[node name="combined" type="StaticBody2D" parent="."]
+position = Vector2(505, -100)
+
+[node name="meatAndA" type="AnimatedSprite2D" parent="combined"]
+position = Vector2(290, 202)
+scale = Vector2(0.407118, 0.441358)
+sprite_frames = SubResource("SpriteFrames_um36f")
+animation = &"pull"
+frame_progress = 0.380699
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="combined"]
+position = Vector2(215, 183.5)
+shape = SubResource("RectangleShape2D_2mhay")
+
+[node name="actionAreaCombined" type="Area2D" parent="combined"]
+priority = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="combined/actionAreaCombined"]
+polygon = PackedVector2Array(151, 145, 174, 144, 174, 104, 188, 104, 255, 104, 255, 191, 256, 262, 252, 264, 175, 266, 174, 216, 174, 192.121, 174, 154, 151, 150, 152, 157, 152, 188, 153, 266, 257, 265, 257, 258, 256, 102, 184, 103, 158, 104, 153, 137)
+
+[node name="indicatorCombined" type="Sprite2D" parent="combined"]
+visible = false
+position = Vector2(215, 95)
+scale = Vector2(0.120813, 0.0924657)
+texture = ExtResource("3_cwjam")
+
+[node name="textBox" type="Label" parent="."]
+visible = false
+offset_left = 83.0
+offset_top = 164.0
+offset_right = 415.0
+offset_bottom = 306.0
+autowrap_mode = 2
+
+[connection signal="body_entered" from="meatManBody/meatMan" to="." method="_on_meat_man_body_entered"]
+[connection signal="body_exited" from="meatManBody/meatMan" to="." method="_on_meat_man_body_exited"]
+[connection signal="body_entered" from="attendantBody/actionAreaAttendant" to="." method="_on_action_area_attendant_body_entered"]
+[connection signal="body_exited" from="attendantBody/actionAreaAttendant" to="." method="_on_action_area_attendant_body_exited"]
+[connection signal="animation_finished" from="combined/meatAndA" to="." method="_on_meat_and_a_animation_finished"]
+[connection signal="body_entered" from="combined/actionAreaCombined" to="." method="_on_action_area_combined_body_entered"]
+[connection signal="body_exited" from="combined/actionAreaCombined" to="." method="_on_action_area_combined_body_exited"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5fsnxfnw43q8"]
+
+[ext_resource type="Script" path="res://level_side.gd" id="1_e1g7l"]
+[ext_resource type="PackedScene" uid="uid://bejas3astk43g" path="res://grocery_guy_side.tscn" id="2_pm88y"]
+[ext_resource type="Texture2D" uid="uid://e55v0agtd7ue" path="res://exclamation-removebg-preview.png" id="3_vg4f4"]
+[ext_resource type="Texture2D" uid="uid://ue7a7q2orhe1" path="res://TextBox2.png" id="5_smgq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb42f"]
+size = Vector2(13.5, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl2hn"]
+size = Vector2(12.25, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au1om"]
+size = Vector2(35, 94)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfc8a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsw2m"]
+
+[node name="levelSide" type="Node2D"]
+script = ExtResource("1_e1g7l")
+
+[node name="grocery guy side" parent="." instance=ExtResource("2_pm88y")]
+position = Vector2(-36, 218)
+
+[node name="exclamation" type="Sprite2D" parent="grocery guy side"]
+visible = false
+position = Vector2(629, 110)
+scale = Vector2(0.3, 0.455714)
+texture = ExtResource("3_vg4f4")
+
+[node name="leftExit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftExit"]
+position = Vector2(-9.25, 432)
+shape = SubResource("RectangleShape2D_vb42f")
+
+[node name="rightExit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightExit"]
+position = Vector2(1159.88, 443.5)
+shape = SubResource("RectangleShape2D_rl2hn")
+
+[node name="cookieArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cookieArea"]
+position = Vector2(869, 391)
+shape = SubResource("RectangleShape2D_au1om")
+
+[node name="cookieMenu" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(575, 193)
+scale = Vector2(2.52764, 1.59)
+texture = ExtResource("5_smgq5")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 338.0
+offset_top = 123.0
+offset_right = 816.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Hello hello"
+
+[node name="take" type="Button" parent="."]
+visible = false
+offset_left = 334.0
+offset_top = 285.0
+offset_right = 489.0
+offset_bottom = 364.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath("../leave")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tfc8a")
+text = "Take"
+icon = ExtResource("5_smgq5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="leave" type="Button" parent="."]
+visible = false
+offset_left = 665.0
+offset_top = 284.0
+offset_right = 840.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nsw2m")
+text = "Walk away"
+icon = ExtResource("5_smgq5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="actionIndicator" type="Label" parent="."]
+visible = false
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 442.0
+offset_bottom = 118.0
+text = "Gooblah
+"
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="canMove" from="." to="grocery guy side" method="_on_level_side_can_move"]
+[connection signal="flipH" from="." to="grocery guy side" method="_on_level_side_flip_h"]
+[connection signal="body_entered" from="leftExit" to="." method="_on_left_exit_body_entered"]
+[connection signal="body_entered" from="leftExit" to="." method="_on_test_body_entered"]
+[connection signal="body_entered" from="rightExit" to="." method="_on_right_exit_body_entered"]
+[connection signal="body_entered" from="cookieArea" to="." method="_on_cookie_area_body_entered"]
+[connection signal="body_exited" from="cookieArea" to="." method="_on_cookie_area_body_exited"]
+[connection signal="focus_entered" from="take" to="." method="_on_take_focus_entered"]
+[connection signal="focus_exited" from="take" to="." method="_on_take_focus_exited"]
+[connection signal="mouse_entered" from="take" to="." method="_on_take_mouse_entered"]
+[connection signal="mouse_exited" from="take" to="." method="_on_take_mouse_exited"]
+[connection signal="pressed" from="take" to="." method="_on_take_pressed"]
+[connection signal="focus_entered" from="leave" to="." method="_on_leave_focus_entered"]
+[connection signal="focus_exited" from="leave" to="." method="_on_leave_focus_exited"]
+[connection signal="mouse_entered" from="leave" to="." method="_on_leave_mouse_entered"]
+[connection signal="mouse_exited" from="leave" to="." method="_on_leave_mouse_exited"]
+[connection signal="pressed" from="leave" to="." method="_on_leave_pressed"]
