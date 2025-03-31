@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6nup3e8atn7r"]
+[gd_scene load_steps=32 format=3 uid="uid://b6nup3e8atn7r"]
 
 [ext_resource type="Script" path="res://deli_scene.gd" id="1_s30hg"]
 [ext_resource type="Texture2D" uid="uid://bwamgx6rbp10w" path="res://Deli/meatman sprite.png" id="2_c1j4h"]
@@ -17,6 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://c2s4y2q2mk247" path="res://Deli/temp/something4TRANS.png" id="9_5mf10"]
 [ext_resource type="Texture2D" uid="uid://57nj540kmx5j" path="res://Deli/transition/4.png" id="9_ngdud"]
 [ext_resource type="Texture2D" uid="uid://1ppmvm7ia47i" path="res://Deli/temp/something5TRANS.png" id="10_sxnma"]
+[ext_resource type="Texture2D" uid="uid://c36mismjeko5q" path="res://Deli/temp/side/meat side 1.png" id="18_t5p0e"]
+[ext_resource type="Texture2D" uid="uid://be3tqkr265wxs" path="res://Deli/temp/side/meat side 2.png" id="19_wo6qt"]
+[ext_resource type="Texture2D" uid="uid://dljidtbmwpkna" path="res://Deli/temp/side/meat side 3.png" id="20_bcxmt"]
+[ext_resource type="Texture2D" uid="uid://5ucicwoc03io" path="res://Deli/temp/side/meat side 4.png" id="21_e5hre"]
+[ext_resource type="Texture2D" uid="uid://dih8rulp4t873" path="res://Deli/temp/side/meat side 5.png" id="22_duq4u"]
+[ext_resource type="Texture2D" uid="uid://tar5cauecsg3" path="res://Deli/temp/side/meat side 6.png" id="23_cjsm7"]
+[ext_resource type="Texture2D" uid="uid://cl42hqy0j63nw" path="res://Deli/temp/side/meat side 7.png" id="24_bd1nb"]
+[ext_resource type="Texture2D" uid="uid://di4jkslyb3j7x" path="res://Deli/temp/side/meat side 8.png" id="25_2ts3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg44"]
 size = Vector2(55, 155)
@@ -114,6 +122,38 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mhay"]
 size = Vector2(78, 157)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_vouhe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_t5p0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wo6qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bcxmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e5hre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_duq4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_cjsm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bd1nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2ts3f")
+}],
+"loop": true,
+"name": &"sad_walk",
+"speed": 7.0
+}]
+
 [node name="deli_scene" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_s30hg")
@@ -207,6 +247,13 @@ offset_top = 164.0
 offset_right = 415.0
 offset_bottom = 306.0
 autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(353, 241)
+scale = Vector2(0.443341, 0.437801)
+sprite_frames = SubResource("SpriteFrames_vouhe")
+animation = &"sad_walk"
+frame_progress = 0.450947
 
 [connection signal="body_entered" from="meatManBody/meatMan" to="." method="_on_meat_man_body_entered"]
 [connection signal="body_exited" from="meatManBody/meatMan" to="." method="_on_meat_man_body_exited"]
