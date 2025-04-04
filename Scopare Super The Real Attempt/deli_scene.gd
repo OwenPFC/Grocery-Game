@@ -43,8 +43,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	"""
+	In the code handling how he walks, set his forward facing animation to a var
+	holding a string. The meat code above will set that string name based on whether he
+	won or lost
+	"""
+	
+	
+	
 	#This handles how meatman moves post completing his mission
-	#if(completed):
+	if(levelGetter("meat")): #this will update stuff regarding beating the meatman
+		$meatManBody/meatMan/meatSprite.animation = "sad_walk"
+		$meatManBody/meatMan/meatSprite.play("sad_walk")
+	else:
+		pass
 	if(levelGetter("negotiation")):
 		$meatManBody/meatMan.monitoring = false
 		#$meatManBody/meatHitBox.disabled = true
@@ -61,11 +74,6 @@ func _process(_delta):
 			Need to get walking animations, side view and front view, holding lots of meat if you fail, holding a little meat
 			otherwise
 			"""
-		#if(meatBeat):
-		if(levelGetter("meat")): #this will update stuff regarding beating the meatman
-			pass
-		else:
-			pass
 
 	
 	if((Input.is_action_just_pressed("Interact") or Input.is_action_just_pressed("Interact_Click")) and $combined/indicatorCombined.visible):
@@ -224,7 +232,8 @@ func _on_meat_man_body_exited(_body):
 	pauseGGTop.emit(false)
 	
 func _on_action_area_combined_body_entered(body):
-	if !deliLineVisible and body != $attendantBody: #Making it so collisions with the hidden attendant body don't matter
+	if !deliLineVisible and body is CharacterBody2D:
+	#if !deliLineVisible and body != $attendantBody: #Making it so collisions with the hidden attendant body don't matter
 													#while having A's hitbox still exist so GG doesn't get trapped in it
 		$combined/indicatorCombined.visible = true
 		numInteractions = 0

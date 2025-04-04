@@ -69,7 +69,7 @@ position = Vector2(811, 128)
 position = Vector2(101, 101)
 
 [node name="deli_line" parent="." instance=ExtResource("6_duov5")]
-position = Vector2(74, 55)
+position = Vector2(817, 288)
 
 [node name="freezers" parent="." instance=ExtResource("7_sbljj")]
 position = Vector2(-134, -28)

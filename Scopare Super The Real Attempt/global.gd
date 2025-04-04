@@ -5,9 +5,9 @@ var locationY = 600
 var globalRote = 0
 var ggSideLocation = -300
 var cookieQuestComplete = false
-var deliLineY = 0
-var deliLineY2 = 700
-var deliLineY3 = 1200
+var deliLineY = 270
+var deliLineY2 = 390
+var deliLineY3 = 510
 
 var color = "pink"
 # Called when the node enters the scene tree for the first time.

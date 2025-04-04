@@ -9,9 +9,10 @@ script = ExtResource("1_rs663")
 
 [node name="clock2" type="Label" parent="timerStuff"]
 visible = false
-offset_left = 516.0
-offset_right = 624.0
-offset_bottom = 23.0
+offset_left = 312.0
+offset_top = 17.0
+offset_right = 472.0
+offset_bottom = 40.0
 text = "Time left in line: 0:00"
 
 [node name="timeLeft2" type="Timer" parent="timerStuff"]

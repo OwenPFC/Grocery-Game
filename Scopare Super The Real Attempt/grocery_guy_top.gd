@@ -12,9 +12,9 @@ func _ready():
 	else: 
 		$ggTopAnimated.animation = Global.color
 		animationName = Global.color
+	randomize()
 
 func _physics_process(_delta):
-	
 	var rote2 = $".".rotation
 	
 	if(Input.is_action_just_pressed("Space")):
@@ -31,92 +31,16 @@ func _physics_process(_delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var rote = $".".rotation
 	
-	if(rote < 0.2 and rote > -0.2):
-				#Upwards
-				$ggTopAnimated.animation = "ggTop"
-				animationName = "ggTop"
-				
-	elif(rote < -0.2 and rote > -0.5 or rote > 0.2 and rote < 0.5):
-				#Back diag
-				if(rote>0):
-					
-					$ggTopAnimated.animation = "diagonal_back_right_pink"
-					animationName = "diagonal_back_right_pink"
-				else:
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
-	elif(rote < -0.5 and rote > -1.2 or rote > 0.7 and rote < 1.2):
-				#Almost the sides
-				if(rote > 0):	
-					#$ggTopAnimated.animation = "side_right_pink"
-					#animationName = "side_right_pink"
-					$ggTopAnimated.animation = "diagonal_back_right_middle_pink"
-					animationName = "diagonal_back_right_middle_pink"
-				else:
-					$ggTopAnimated.animation = "diagonal_back_left_middle_pink"
-					animationName = "diagonal_back_left_middle_pink"
-	elif(rote < -1.2 and rote > -2 or rote > 1.2 and rote < 2):
-				if(rote>0):
-					$ggTopAnimated.animation = "side_right_pink"
-					animationName = "side_right_pink"
-				else:
-					$ggTopAnimated.animation = "side_left_pink"
-					animationName = "side_left_pink"
-					
-	elif(rote < -2 and rote > -3 or rote > 2 and rote < 3):
-				#front diags
-				if(rote > 0):
-					$ggTopAnimated.animation = "diagonal_front_right_pink"
-					animationName = "diagonal_front_right_pink"
-					
-				else:
-					$ggTopAnimated.animation = "diagonal_front_left_pink"
-					animationName = "diagonal_front_left_pink"
-					
-	elif(rote < -3 and rote > -3.25 or rote > 3 and rote < 3.25):
-					#down
-					$ggTopAnimated.animation = "ggTop_down_pink"
-					animationName = "ggTop_down_pink"
-					
-	elif(rote < -3.25 and rote > -4.5 or rote > 3.25 and rote < 4.25):
-				if(rote > 0):
-					$ggTopAnimated.animation = "diagonal_front_left_pink"
-					animationName = "diagonal_front_left_pink"	
-				else:	
-					$ggTopAnimated.animation = "diagonal_front_right_pink"
-					animationName = "diagonal_front_right_pink"
-	elif(rote < -4.25 and rote > -4.8 or rote > 4.25 and rote < 4.8):
-				if(rote > 0):
-					$ggTopAnimated.animation = "side_left_pink"
-					animationName = "side_left_pink"
-				else:
-					$ggTopAnimated.animation = "side_right_pink"
-					animationName = "side_right_pink"
-	elif(rote < -4.8 and rote >-6.15 or rote > 4.8 and rote < 6.15):
-				if(rote > 0):
-					#velocity.x = direction * SPEED*-1
-					#velocity.y = direction* SPEED
-					
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
-					
-				else:	
-					#velocity.x = direction * SPEED*-1
-					#velocity.y = direction* SPEED
-					
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
-					
-	elif(rote < -6.15 or rote > 6.15):
-				#velocity.y = direction*SPEED
-				
-				$ggTopAnimated.animation = "ggTop"
-				animationName = "ggTop"
+	determineAnimation(rote)
 
 	var direction = Input.get_axis("Up", "Down")
 	if !paused:
 		if direction:
+			#broken wheel
+			if(randi_range(0,100000000000000) == 20):
+				$".".rotation -= 0.4
 			rote = $".".rotation
+			determineAnimation(rote)
 			
 			$ggTopAnimated.animation = animationName
 			$ggTopAnimated.play(animationName)
@@ -235,6 +159,89 @@ func _physics_process(_delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func determineAnimation(rote):
+	if(rote < 0.2 and rote > -0.2):
+				#Upwards
+				$ggTopAnimated.animation = "ggTop"
+				animationName = "ggTop"
+				
+	elif(rote < -0.2 and rote > -0.5 or rote > 0.2 and rote < 0.5):
+				#Back diag
+				if(rote>0):
+					
+					$ggTopAnimated.animation = "diagonal_back_right_pink"
+					animationName = "diagonal_back_right_pink"
+				else:
+					$ggTopAnimated.animation = "diagonal_back_left_pink"
+					animationName = "diagonal_back_left_pink"
+	elif(rote < -0.5 and rote > -1.2 or rote > 0.7 and rote < 1.2):
+				#Almost the sides
+				if(rote > 0):	
+					#$ggTopAnimated.animation = "side_right_pink"
+					#animationName = "side_right_pink"
+					$ggTopAnimated.animation = "diagonal_back_right_middle_pink"
+					animationName = "diagonal_back_right_middle_pink"
+				else:
+					$ggTopAnimated.animation = "diagonal_back_left_middle_pink"
+					animationName = "diagonal_back_left_middle_pink"
+	elif(rote < -1.2 and rote > -2 or rote > 1.2 and rote < 2):
+				if(rote>0):
+					$ggTopAnimated.animation = "side_right_pink"
+					animationName = "side_right_pink"
+				else:
+					$ggTopAnimated.animation = "side_left_pink"
+					animationName = "side_left_pink"
+					
+	elif(rote < -2 and rote > -3 or rote > 2 and rote < 3):
+				#front diags
+				if(rote > 0):
+					$ggTopAnimated.animation = "diagonal_front_right_pink"
+					animationName = "diagonal_front_right_pink"
+					
+				else:
+					$ggTopAnimated.animation = "diagonal_front_left_pink"
+					animationName = "diagonal_front_left_pink"
+					
+	elif(rote < -3 and rote > -3.25 or rote > 3 and rote < 3.25):
+					#down
+					$ggTopAnimated.animation = "ggTop_down_pink"
+					animationName = "ggTop_down_pink"
+					
+	elif(rote < -3.25 and rote > -4.5 or rote > 3.25 and rote < 4.25):
+				if(rote > 0):
+					$ggTopAnimated.animation = "diagonal_front_left_pink"
+					animationName = "diagonal_front_left_pink"	
+				else:	
+					$ggTopAnimated.animation = "diagonal_front_right_pink"
+					animationName = "diagonal_front_right_pink"
+	elif(rote < -4.25 and rote > -4.8 or rote > 4.25 and rote < 4.8):
+				if(rote > 0):
+					$ggTopAnimated.animation = "side_left_pink"
+					animationName = "side_left_pink"
+				else:
+					$ggTopAnimated.animation = "side_right_pink"
+					animationName = "side_right_pink"
+	elif(rote < -4.8 and rote >-6.15 or rote > 4.8 and rote < 6.15):
+				if(rote > 0):
+					#velocity.x = direction * SPEED*-1
+					#velocity.y = direction* SPEED
+					
+					$ggTopAnimated.animation = "diagonal_back_left_pink"
+					animationName = "diagonal_back_left_pink"
+					
+				else:	
+					#velocity.x = direction * SPEED*-1
+					#velocity.y = direction* SPEED
+					
+					$ggTopAnimated.animation = "diagonal_back_left_pink"
+					animationName = "diagonal_back_left_pink"
+					
+	elif(rote < -6.15 or rote > 6.15):
+				#velocity.y = direction*SPEED
+				
+				$ggTopAnimated.animation = "ggTop"
+				animationName = "ggTop"
 
 func _on_quest_man_1_pause_gg_top(isPaused):
 	if(isPaused):

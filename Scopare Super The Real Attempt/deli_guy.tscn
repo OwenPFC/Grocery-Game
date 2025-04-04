@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://c15vsnrihfwu2"]
+[gd_scene load_steps=160 format=3 uid="uid://c15vsnrihfwu2"]
 
 [ext_resource type="Script" path="res://deli_guy.gd" id="1_4lhyf"]
 [ext_resource type="Texture2D" uid="uid://caqt4lpm8n3m8" path="res://Deli/counter/meat filled counter.png" id="1_hi50u"]
@@ -696,6 +696,9 @@ animations = [{
 "speed": 120.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb2pb"]
+size = Vector2(389, 123)
+
 [node name="deli_guy" type="Node2D"]
 script = ExtResource("1_4lhyf")
 
@@ -717,3 +720,9 @@ frame_progress = 0.0565012
 position = Vector2(2, -6.375)
 scale = Vector2(1.58, 1.60833)
 texture = ExtResource("1_hi50u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.5, -60.5)
+shape = SubResource("RectangleShape2D_tb2pb")
