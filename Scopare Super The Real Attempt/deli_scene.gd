@@ -18,7 +18,7 @@ var activeList = []
 var talking = ["a","b","c","d","e","f","!"] #this is for completed
 var talking2 = ["goopman","poopman","!"] #this is for A, if you talk to him before meatman leaves
 var talking3 = ["shoopy","oopy","bajoogie","!"] #this is for A, after meatman leaves
-var meatOneOff = ["start","Buzz off dude", ""] #I think this doesn't need to exist anymore
+#var meatOneOff = ["start","Buzz off dude", ""] #I think this doesn't need to exist anymore
 var completed = false
 var meatBeat = false
 

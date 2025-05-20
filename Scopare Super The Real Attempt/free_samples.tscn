@@ -1,10 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsqwafsomxhp6"]
+[gd_scene load_steps=6 format=3 uid="uid://dsqwafsomxhp6"]
 
+[ext_resource type="Script" path="res://free_samples.gd" id="1_4ki8n"]
 [ext_resource type="Texture2D" uid="uid://lte7h1h6gwi1" path="res://Free Samples/table with guy chair transp.png" id="1_csxfd"]
+[ext_resource type="Texture2D" uid="uid://x5kr1sl7tsfu" path="res://indicator.png" id="3_nrk21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52rua"]
+size = Vector2(223, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic07g"]
+size = Vector2(229, 76)
 
 [node name="free_samples" type="Node2D"]
+script = ExtResource("1_4ki8n")
 
 [node name="free_sample_guy" type="Sprite2D" parent="."]
 position = Vector2(4, 1)
 scale = Vector2(0.748418, 0.770747)
 texture = ExtResource("1_csxfd")
+
+[node name="table_body" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table_body"]
+position = Vector2(3.5, 6.5)
+shape = SubResource("RectangleShape2D_52rua")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, 28)
+shape = SubResource("RectangleShape2D_ic07g")
+debug_color = Color(0.591059, 0.546039, 0.0991778, 0.42)
+
+[node name="sample_indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, -96)
+scale = Vector2(0.252534, 0.227988)
+texture = ExtResource("3_nrk21")
+
+[node name="textbox" type="Label" parent="."]
+offset_left = -103.0
+offset_top = -143.0
+offset_right = 87.0
+offset_bottom = -89.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -115,8 +115,8 @@ one_shot = true
 
 [connection signal="canMove" from="." to="grocery guy side" method="_on_level_side_can_move"]
 [connection signal="flipH" from="." to="grocery guy side" method="_on_level_side_flip_h"]
-[connection signal="body_entered" from="leftExit" to="." method="_on_left_exit_body_entered"]
 [connection signal="body_entered" from="leftExit" to="." method="_on_test_body_entered"]
+[connection signal="body_entered" from="leftExit" to="." method="_on_left_exit_body_entered"]
 [connection signal="body_entered" from="rightExit" to="." method="_on_right_exit_body_entered"]
 [connection signal="body_entered" from="cookieArea" to="." method="_on_cookie_area_body_entered"]
 [connection signal="body_exited" from="cookieArea" to="." method="_on_cookie_area_body_exited"]

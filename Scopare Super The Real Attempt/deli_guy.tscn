@@ -706,8 +706,7 @@ script = ExtResource("1_4lhyf")
 position = Vector2(26.375, 54)
 scale = Vector2(1.9825, 1.8)
 sprite_frames = SubResource("SpriteFrames_hnbxs")
-animation = &"crying"
-frame_progress = 0.277708
+animation = &"orange"
 
 [node name="slicer" type="AnimatedSprite2D" parent="."]
 position = Vector2(-116.114, -3.53715)

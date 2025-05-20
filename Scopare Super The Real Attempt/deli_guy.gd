@@ -2,6 +2,7 @@ extends Node2D
 
 var colors = ["beige","brown","green","orange","pink","salami","yellow"]
 var colorIndex = 0
+var count = 10000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$slicer.play("speen")

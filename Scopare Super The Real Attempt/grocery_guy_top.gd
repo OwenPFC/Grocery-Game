@@ -37,7 +37,7 @@ func _physics_process(_delta):
 	if !paused:
 		if direction:
 			#broken wheel
-			if(randi_range(0,100000000000000) == 20):
+			if(randi_range(0,1000000000) == 20):
 				$".".rotation -= 0.4
 			rote = $".".rotation
 			determineAnimation(rote)
@@ -163,85 +163,85 @@ func _physics_process(_delta):
 func determineAnimation(rote):
 	if(rote < 0.2 and rote > -0.2):
 				#Upwards
-				$ggTopAnimated.animation = "ggTop"
-				animationName = "ggTop"
+				$ggTopAnimated.animation = "ggTop_back_" + Global.color
+				animationName = "ggTop_back_" + Global.color
 				
 	elif(rote < -0.2 and rote > -0.5 or rote > 0.2 and rote < 0.5):
 				#Back diag
 				if(rote>0):
 					
-					$ggTopAnimated.animation = "diagonal_back_right_pink"
-					animationName = "diagonal_back_right_pink"
+					$ggTopAnimated.animation = "diagonal_back_right_" + Global.color
+					animationName = "diagonal_back_right_" + Global.color
 				else:
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
+					$ggTopAnimated.animation = "diagonal_back_left_" + Global.color
+					animationName = "diagonal_back_left_" + Global.color
 	elif(rote < -0.5 and rote > -1.2 or rote > 0.7 and rote < 1.2):
 				#Almost the sides
 				if(rote > 0):	
 					#$ggTopAnimated.animation = "side_right_pink"
 					#animationName = "side_right_pink"
-					$ggTopAnimated.animation = "diagonal_back_right_middle_pink"
-					animationName = "diagonal_back_right_middle_pink"
+					$ggTopAnimated.animation = "diagonal_back_right_middle_" + Global.color
+					animationName = "diagonal_back_right_middle_" + Global.color
 				else:
-					$ggTopAnimated.animation = "diagonal_back_left_middle_pink"
-					animationName = "diagonal_back_left_middle_pink"
+					$ggTopAnimated.animation = "diagonal_back_left_middle_" + Global.color
+					animationName = "diagonal_back_left_middle_" + Global.color
 	elif(rote < -1.2 and rote > -2 or rote > 1.2 and rote < 2):
 				if(rote>0):
-					$ggTopAnimated.animation = "side_right_pink"
-					animationName = "side_right_pink"
+					$ggTopAnimated.animation = "side_right_" + Global.color
+					animationName = "side_right_" + Global.color
 				else:
-					$ggTopAnimated.animation = "side_left_pink"
-					animationName = "side_left_pink"
+					$ggTopAnimated.animation = "side_left_pink" + Global.color
+					animationName = "side_left_" + Global.color
 					
 	elif(rote < -2 and rote > -3 or rote > 2 and rote < 3):
 				#front diags
 				if(rote > 0):
-					$ggTopAnimated.animation = "diagonal_front_right_pink"
-					animationName = "diagonal_front_right_pink"
+					$ggTopAnimated.animation = "diagonal_front_right_" + Global.color
+					animationName = "diagonal_front_right_" + Global.color
 					
 				else:
-					$ggTopAnimated.animation = "diagonal_front_left_pink"
-					animationName = "diagonal_front_left_pink"
+					$ggTopAnimated.animation = "diagonal_front_left_" + Global.color
+					animationName = "diagonal_front_left_" + Global.color
 					
 	elif(rote < -3 and rote > -3.25 or rote > 3 and rote < 3.25):
 					#down
-					$ggTopAnimated.animation = "ggTop_down_pink"
-					animationName = "ggTop_down_pink"
+					$ggTopAnimated.animation = "ggTop_down_" + Global.color
+					animationName = "ggTop_down_" + Global.color
 					
 	elif(rote < -3.25 and rote > -4.5 or rote > 3.25 and rote < 4.25):
 				if(rote > 0):
-					$ggTopAnimated.animation = "diagonal_front_left_pink"
-					animationName = "diagonal_front_left_pink"	
+					$ggTopAnimated.animation = "diagonal_front_left_" + Global.color
+					animationName = "diagonal_front_left_" + Global.color
 				else:	
-					$ggTopAnimated.animation = "diagonal_front_right_pink"
-					animationName = "diagonal_front_right_pink"
+					$ggTopAnimated.animation = "diagonal_front_right_" + Global.color
+					animationName = "diagonal_front_right_" + Global.color
 	elif(rote < -4.25 and rote > -4.8 or rote > 4.25 and rote < 4.8):
 				if(rote > 0):
-					$ggTopAnimated.animation = "side_left_pink"
-					animationName = "side_left_pink"
+					$ggTopAnimated.animation = "side_left_" + Global.color
+					animationName = "side_left_" + Global.color
 				else:
-					$ggTopAnimated.animation = "side_right_pink"
-					animationName = "side_right_pink"
+					$ggTopAnimated.animation = "side_right_" + Global.color
+					animationName = "side_right_" + Global.color
 	elif(rote < -4.8 and rote >-6.15 or rote > 4.8 and rote < 6.15):
 				if(rote > 0):
 					#velocity.x = direction * SPEED*-1
 					#velocity.y = direction* SPEED
 					
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
+					$ggTopAnimated.animation = "diagonal_back_left_" + Global.color
+					animationName = "diagonal_back_left_" + Global.color
 					
 				else:	
 					#velocity.x = direction * SPEED*-1
 					#velocity.y = direction* SPEED
 					
-					$ggTopAnimated.animation = "diagonal_back_left_pink"
-					animationName = "diagonal_back_left_pink"
+					$ggTopAnimated.animation = "diagonal_back_left_" + Global.color
+					animationName = "diagonal_back_left_" + Global.color
 					
 	elif(rote < -6.15 or rote > 6.15):
 				#velocity.y = direction*SPEED
 				
-				$ggTopAnimated.animation = "ggTop"
-				animationName = "ggTop"
+				$ggTopAnimated.animation = "ggTop_back_" + Global.color
+				animationName = "ggTop_back_" + Global.color
 
 func _on_quest_man_1_pause_gg_top(isPaused):
 	if(isPaused):
@@ -267,11 +267,20 @@ func _on_deli_scene_move_gga_little():
 
 
 func _on_freezers_change_to_blue():
-	$ggTopAnimated.animation = "Blue"
-	animationName = "Blue"
-
-
+	#$ggTopAnimated.animation = "Blue"
+	#animationName = "Blue"
+	"""Deprecated"""
+	pass
+	
 func _on_freezers_pause_gg_top(isPaused):
+	if(isPaused):
+		SPEED = 0.0
+		paused = true
+	else:
+		SPEED = 250.0
+		paused = false
+
+func _on_free_samples_pause_gg_top(isPaused):
 	if(isPaused):
 		SPEED = 0.0
 		paused = true

@@ -91,4 +91,5 @@ position = Vector2(437, 140)
 [connection signal="deliLineIndicators" from="deli_line" to="deli_scene" method="_on_deli_line_deli_line_indicators"]
 [connection signal="changeToBlue" from="freezers" to="ggTop" method="_on_freezers_change_to_blue"]
 [connection signal="pauseGGTop" from="freezers" to="ggTop" method="_on_freezers_pause_gg_top"]
+[connection signal="pauseGGTop" from="free_samples" to="ggTop" method="_on_free_samples_pause_gg_top"]
 [connection signal="pauseGGTop" from="QuestMan1" to="ggTop" method="_on_quest_man_1_pause_gg_top"]

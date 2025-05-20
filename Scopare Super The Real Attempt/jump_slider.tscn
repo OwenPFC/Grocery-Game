@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://8en217faf6dq"]
+
+[ext_resource type="Script" path="res://jump_slider.gd" id="1_fw87g"]
+[ext_resource type="Texture2D" uid="uid://d4nies5c54lgv" path="res://jump slider assets/temp box.png" id="2_aur8d"]
+[ext_resource type="Texture2D" uid="uid://vl7cw04g2lk2" path="res://jump slider assets/arrow.png" id="3_la7tr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8ypm"]
+size = Vector2(58, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyk2p"]
+size = Vector2(152, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rg4"]
+size = Vector2(163, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehpqt"]
+size = Vector2(158, 20)
+
+[node name="jump_slider" type="Node2D"]
+script = ExtResource("1_fw87g")
+
+[node name="TempBox" type="Sprite2D" parent="."]
+position = Vector2(639, 311)
+texture = ExtResource("2_aur8d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(642, 480)
+
+[node name="Arrow" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_la7tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-102, -132)
+shape = SubResource("RectangleShape2D_n8ypm")
+
+[node name="top" type="Area2D" parent="."]
+
+[node name="top bar" type="Sprite2D" parent="top"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="top"]
+position = Vector2(587, 112)
+shape = SubResource("RectangleShape2D_oyk2p")
+
+[node name="middle" type="Area2D" parent="."]
+
+[node name="middle bar" type="Sprite2D" parent="middle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="middle"]
+position = Vector2(587, 263)
+shape = SubResource("RectangleShape2D_oyk2p")
+
+[node name="bottom" type="Area2D" parent="."]
+
+[node name="bottom bar" type="Sprite2D" parent="bottom"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bottom"]
+position = Vector2(590, 457)
+shape = SubResource("RectangleShape2D_oyk2p")
+
+[node name="top_boundary" type="Area2D" parent="."]
+position = Vector2(514, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_boundary"]
+position = Vector2(73.5, -6)
+shape = SubResource("RectangleShape2D_j5rg4")
+
+[node name="bottom_boundary" type="Area2D" parent="."]
+position = Vector2(590, 457)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom_boundary"]
+position = Vector2(-1, 51)
+shape = SubResource("RectangleShape2D_ehpqt")

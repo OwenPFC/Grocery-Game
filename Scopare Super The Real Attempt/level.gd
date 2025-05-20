@@ -52,6 +52,14 @@ var thirdInLine = false
 var cheekyLittleBooleanToForceThisClockToNotInstantlyKillItself = false
 #DELI QUEST
 
+#FREE SAMPLE QUEST
+var talkedTo = false
+var pinkDone = false
+var blueDone = false
+var orangeDone = false
+var joeDone = false
+var awesomeDone = false
+#FREE SAMPLE QUEST
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -149,7 +157,19 @@ func makeTrue(nameOfBool:String):
 		theLevel.secondInLine = true
 	elif(nameOfBool == "third"):
 		theLevel.thirdInLine = true
-
+	elif(nameOfBool == "pinkHat"):
+		theLevel.pinkDone = true
+	elif(nameOfBool == "blueHat"):
+		theLevel.blueDone = true
+	elif(nameOfBool == "orangeHat"):
+		theLevel.orangeDone = true
+	elif(nameOfBool == "joeHat"):
+		theLevel.joeDone = true
+	elif(nameOfBool == "awesomeHat"):
+		theLevel.awesomeDone = true
+	elif(nameOfBool == "talkedTo"):
+		theLevel.talkedTo = true
+		
 func makeFalse(nameOfBool:String):
 	if(nameOfBool == "isCombined"):
 		theLevel.isCombined = false
@@ -182,6 +202,18 @@ func levelGetter(nameOfBool:String):
 		return theLevel.runClock
 	elif(nameOfBool == "clockLevel"):
 		return theLevel.theClockHasBeenRunInTheLevel
+	elif(nameOfBool == "pinkHat"):
+		return theLevel.pinkDone
+	elif(nameOfBool == "BlueHat"):
+		return theLevel.blueDone
+	elif(nameOfBool == "OrangeHat"):
+		return theLevel.orangeDone
+	elif(nameOfBool == "JoeHat"):
+		return theLevel.joeDone
+	elif(nameOfBool == "AwesomeHat"):
+		return theLevel.awesomeDone
+	elif(nameOfBool == "talkedTo"):
+		return theLevel.talkedTo
 	#elif(nameOfBool == "color"):
 		#return theLevel.color
 		#again not a bool but who cares
