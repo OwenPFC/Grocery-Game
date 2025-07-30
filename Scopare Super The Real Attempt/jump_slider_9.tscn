@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjqivh7nxbxg"]
+
+[ext_resource type="PackedScene" uid="uid://8en217faf6dq" path="res://jump_slider.tscn" id="1_v8use"]
+[ext_resource type="Script" path="res://jump_slider_9.gd" id="2_rkiqw"]
+
+[node name="jump_slider_9" instance=ExtResource("1_v8use")]
+rotation = -1.57699
+script = ExtResource("2_rkiqw")
+
+[node name="TempBox" parent="." index="0"]
+position = Vector2(130, 265.5)
+
+[node name="top" parent="." index="1"]
+visible = false
+position = Vector2(-507.799, 288.86)
+
+[node name="middle" parent="." index="2"]
+visible = false
+position = Vector2(-508.888, -181.155)
+
+[node name="bottom" parent="." index="3"]
+position = Vector2(-511.361, -266.172)
+
+[node name="top_boundary" parent="." index="4"]
+position = Vector2(3, 7.5)
+
+[node name="bottom_boundary" parent="." index="5"]
+position = Vector2(81, 411.5)
+
+[node name="arrow" parent="." index="6"]
+position = Vector2(130.925, 496.82)

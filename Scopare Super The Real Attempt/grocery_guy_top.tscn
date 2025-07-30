@@ -1,11 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvsytg3v0k18n"]
+[gd_scene load_steps=43 format=3 uid="uid://bvsytg3v0k18n"]
 
 [ext_resource type="Script" path="res://grocery_guy_top.gd" id="1_hslw4"]
+[ext_resource type="Texture2D" uid="uid://nwncnj616amf" path="res://Grocery Guy Sprites/blue gg back diagonal.png" id="2_8fqp6"]
+[ext_resource type="Texture2D" uid="uid://pxtm7pm77u5b" path="res://Grocery Guy Sprites/blue gg back diagonal 2.png" id="3_3eakm"]
 [ext_resource type="Texture2D" uid="uid://2mb753d3iql2" path="res://Grocery Guy Sprites/new ggtop look.png" id="4_ascyo"]
 [ext_resource type="Texture2D" uid="uid://cq22mo2fe75hv" path="res://Grocery Guy Sprites/gg back diagonal.png" id="4_b43yn"]
+[ext_resource type="Texture2D" uid="uid://cobt3r7fopgjd" path="res://Grocery Guy Sprites/blue gg back diagonal middle left.png" id="4_cikla"]
 [ext_resource type="Texture2D" uid="uid://ppb1pwklpnr2" path="res://Grocery Guy Sprites/gg back diagonal middle left.png" id="4_jggvp"]
 [ext_resource type="Texture2D" uid="uid://kh7atjq5a61o" path="res://Grocery Guy Sprites/gg back diagonal 2.png" id="5_8jasd"]
 [ext_resource type="Texture2D" uid="uid://clec5g4o5yl30" path="res://Grocery Guy Sprites/new ggtop look2.png" id="5_k8x18"]
+[ext_resource type="Texture2D" uid="uid://dgfvy3p45o75c" path="res://Grocery Guy Sprites/blue gg back diagonal middle left 2.png" id="5_l54r1"]
 [ext_resource type="Texture2D" uid="uid://dsmaiadoeywm7" path="res://Grocery Guy Sprites/gg back diagonal middle left 2.png" id="5_y2070"]
 [ext_resource type="Texture2D" uid="uid://bnujsxnhmccoe" path="res://Grocery Guy Sprites/gg back diagonal middle.png" id="6_4pg35"]
 [ext_resource type="Texture2D" uid="uid://bjmk1mm4jd50p" path="res://Grocery Guy Sprites/gg back diagonal right.png" id="6_5j0e6"]
@@ -14,16 +18,54 @@
 [ext_resource type="Texture2D" uid="uid://cko0mr5gmpcdc" path="res://Grocery Guy Sprites/gg front diagonal.png" id="8_d8ree"]
 [ext_resource type="Texture2D" uid="uid://ctdhlgn5jjtrk" path="res://Grocery Guy Sprites/gg front diagonal 2.png" id="9_3bk5q"]
 [ext_resource type="Texture2D" uid="uid://0jcr01rdl0ha" path="res://Grocery Guy Sprites/gg front diagonal right.png" id="10_3w6gw"]
+[ext_resource type="Texture2D" uid="uid://iw6ef1in2jex" path="res://Grocery Guy Sprites/blue gg back diagonal right.png" id="10_viwbm"]
 [ext_resource type="Texture2D" uid="uid://cftutvk12njvl" path="res://Grocery Guy Sprites/gg front diagonal right 2.png" id="11_l5vfm"]
+[ext_resource type="Texture2D" uid="uid://db58b4bueahov" path="res://Grocery Guy Sprites/blue gg back diagonal right 2.png" id="11_nhe3s"]
+[ext_resource type="Texture2D" uid="uid://6flssqms6kcb" path="res://Grocery Guy Sprites/blue gg back diagonal middle.png" id="12_s6ew8"]
+[ext_resource type="Texture2D" uid="uid://nn0lb1kpmpo" path="res://Grocery Guy Sprites/blue gg back diagonal middle 2.png" id="13_ymmvd"]
 [ext_resource type="Texture2D" uid="uid://k8lg5khqa8jj" path="res://Grocery Guy Sprites/ggtop front.png" id="14_o5bh6"]
 [ext_resource type="Texture2D" uid="uid://bjfnib0piejsx" path="res://Grocery Guy Sprites/ggtop front 2.png" id="15_ysmts"]
 [ext_resource type="Texture2D" uid="uid://2rxjagjjlfe0" path="res://Grocery Guy Sprites/ggtop side.png" id="16_oh3fc"]
 [ext_resource type="Texture2D" uid="uid://l31ibhxmhs5j" path="res://Grocery Guy Sprites/ggtop side 2.png" id="17_1i2jf"]
+[ext_resource type="Texture2D" uid="uid://coa1nm23oce46" path="res://Grocery Guy Sprites/blue gg front diagonal.png" id="18_ksr6c"]
 [ext_resource type="Texture2D" uid="uid://cqqm8oyoyyp7x" path="res://Grocery Guy Sprites/ggtop side 3.png" id="18_mb32p"]
+[ext_resource type="Texture2D" uid="uid://c1xp75bavrk0" path="res://Grocery Guy Sprites/blue gg front diagonal 2.png" id="19_rkdwx"]
 [ext_resource type="Texture2D" uid="uid://c6wrduxgyawcc" path="res://Grocery Guy Sprites/ggtop side 4.png" id="19_wsvv1"]
+[ext_resource type="Texture2D" uid="uid://diavphbwieetk" path="res://Grocery Guy Sprites/blue gg front diagonal right.png" id="22_v6ov3"]
+[ext_resource type="Texture2D" uid="uid://x3qj1u0tvwsi" path="res://Grocery Guy Sprites/blue gg front diagonal right 2.png" id="23_gbgc0"]
+[ext_resource type="Texture2D" uid="uid://bnyx71whjmr2a" path="res://Grocery Guy Sprites/blue new ggtop look.png" id="26_5g5on"]
+[ext_resource type="Texture2D" uid="uid://cnx3swgr021ks" path="res://Grocery Guy Sprites/blue new ggtop look2.png" id="27_hddyk"]
+[ext_resource type="Texture2D" uid="uid://cdvpnmrojebyh" path="res://Grocery Guy Sprites/blue ggtop front.png" id="30_yn7g4"]
+[ext_resource type="Texture2D" uid="uid://cvwlosupaoh04" path="res://Grocery Guy Sprites/blue ggtop front 2.png" id="31_4al21"]
+[ext_resource type="Texture2D" uid="uid://c5vpwkftorl5q" path="res://Grocery Guy Sprites/blue ggtop side.png" id="34_kd4op"]
+[ext_resource type="Texture2D" uid="uid://ppu1fj4smok7" path="res://Grocery Guy Sprites/blue ggtop side 2.png" id="35_j1kig"]
+[ext_resource type="Texture2D" uid="uid://bkxg1fboooicv" path="res://Grocery Guy Sprites/blue ggtop side 3.png" id="38_lm5w6"]
+[ext_resource type="Texture2D" uid="uid://cp2mejqtelayg" path="res://Grocery Guy Sprites/blue ggtop side 4.png" id="39_07fy6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_owqtw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8fqp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3eakm")
+}],
+"loop": true,
+"name": &"diagonal_back_left_Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cikla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l54r1")
+}],
+"loop": true,
+"name": &"diagonal_back_left_middle_Blue",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_jggvp")
@@ -44,6 +86,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"diagonal_back_left_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_viwbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nhe3s")
+}],
+"loop": true,
+"name": &"diagonal_back_right_Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_s6ew8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ymmvd")
+}],
+"loop": true,
+"name": &"diagonal_back_right_middle_Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -70,6 +134,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("18_ksr6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rkdwx")
+}],
+"loop": true,
+"name": &"diagonal_front_left_Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_d8ree")
 }, {
 "duration": 1.0,
@@ -77,6 +152,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"diagonal_front_left_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_v6ov3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_gbgc0")
+}],
+"loop": true,
+"name": &"diagonal_front_right_Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -92,6 +178,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.5,
+"texture": ExtResource("26_5g5on")
+}, {
+"duration": 1.5,
+"texture": ExtResource("27_hddyk")
+}],
+"loop": true,
+"name": &"ggTop_back_Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
 "texture": ExtResource("4_ascyo")
 }, {
 "duration": 1.5,
@@ -99,6 +196,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ggTop_back_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("30_yn7g4")
+}, {
+"duration": 1.5,
+"texture": ExtResource("31_4al21")
+}],
+"loop": true,
+"name": &"ggTop_down_Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -112,9 +220,15 @@ animations = [{
 "name": &"ggTop_down_pink",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_kd4op")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_j1kig")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"side_left_Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -126,6 +240,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"side_left_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_lm5w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_07fy6")
+}],
+"loop": true,
+"name": &"side_right_Blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -147,7 +272,7 @@ script = ExtResource("1_hslw4")
 [node name="ggTopAnimated" type="AnimatedSprite2D" parent="."]
 position = Vector2(129, -19)
 sprite_frames = SubResource("SpriteFrames_owqtw")
-animation = &"side_right_pink"
+animation = &"ggTop_back_pink"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(3, -4)

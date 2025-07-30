@@ -7,11 +7,11 @@ var animationName = "ggTop"
 
 func _ready():
 	if Global.color == "pink":
-		$ggTopAnimated.animation = "ggTop"
-		animationName = "ggTop"
+		$ggTopAnimated.animation = "ggTop_back_" + Global.color
+		animationName = "ggTop_back_" + Global.color
 	else: 
-		$ggTopAnimated.animation = Global.color
-		animationName = Global.color
+		$ggTopAnimated.animation = "ggTop_back_"+ Global.color
+		animationName = "ggTop_back_" + Global.color
 	randomize()
 
 func _physics_process(_delta):
@@ -190,7 +190,7 @@ func determineAnimation(rote):
 					$ggTopAnimated.animation = "side_right_" + Global.color
 					animationName = "side_right_" + Global.color
 				else:
-					$ggTopAnimated.animation = "side_left_pink" + Global.color
+					$ggTopAnimated.animation = "side_left_" + Global.color
 					animationName = "side_left_" + Global.color
 					
 	elif(rote < -2 and rote > -3 or rote > 2 and rote < 3):
